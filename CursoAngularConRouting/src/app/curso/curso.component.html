@@ -1,0 +1,9 @@
+<div *ngFor="let curso of listaDeCursos">
+  <span>
+    <p> {{curso.nombre}} - Terminado {{curso.terminado}} </p>
+    <p>Alumnos: </p>
+    <li *ngFor="let alumno of curso.listaAlumnos">
+      {{alumno.nombre}}
+    </li>
+  </span>
+</div>

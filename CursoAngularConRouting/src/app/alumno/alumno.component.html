@@ -1,0 +1,26 @@
+<div *ngIf="matriculado==true">
+  <span> {{nombre}} - {{edad}} - {{notasParcial}} </span>
+  <input type="text" [(ngModel)]="nombre">
+</div>
+<button (dblclick)="this.cambiarMatricula(true)">Matricular</button>
+<button (mouseover)="this.cambiarMatricula(false)">Desmatricular</button>
+
+<hr>
+
+<div>
+<input type="text" [(ngModel)]="nombre">
+<button (click)="this.addAlumno(nombre)">Añadir alumno</button>
+</div>
+
+<hr>
+
+<ul>
+  <li *ngFor="let alumno of alu">
+    <ul>
+      Alumno:
+      <li>
+        {{alumno.nombre}}
+      </li>
+    </ul>
+  </li>
+</ul>
