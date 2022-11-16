@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CursoComponent} from "./curso/curso.component";
-import {AlumnoComponent} from "./alumno/alumno.component";
+import {OwnersComponent} from "./owners/owners.component";
+import {PetsComponent} from "./pets/pets.component";
 
 const routes: Routes = [
-  {path: 'alumno', component: AlumnoComponent},
-  {path: '', component: CursoComponent},
-  {path:'**', component: CursoComponent}
+  {path: 'mascota', component: PetsComponent},
+  {path: '', component: OwnersComponent},
+  {path: '**', component: OwnersComponent}
 ];
 
 @NgModule({

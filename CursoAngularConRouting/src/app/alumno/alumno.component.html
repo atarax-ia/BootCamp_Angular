@@ -2,8 +2,10 @@
   <span> {{nombre}} - {{edad}} - {{notasParcial}} </span>
   <input type="text" [(ngModel)]="nombre">
 </div>
-<button (dblclick)="this.cambiarMatricula(true)">Matricular</button>
-<button (mouseover)="this.cambiarMatricula(false)">Desmatricular</button>
+<!--<button (dblclick)="this.cambiarMatricula(true)">Matricular</button>-->
+<!--<button (mouseover)="this.cambiarMatricula(false)">Desmatricular</button>-->
+<button (click)="this.cambiarMatricula(true)">Matricular</button>
+<button (click)="this.cambiarMatricula(false)">Desmatricular</button>
 
 <hr>
 
