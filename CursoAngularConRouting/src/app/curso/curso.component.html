@@ -1,9 +1,19 @@
 <div *ngFor="let curso of listaDeCursos">
   <span>
     <p> {{curso.nombre}} - Terminado {{curso.terminado}} </p>
-    <p>Alumnos: </p>
+    <p><strong> Alumnos: </strong></p>
     <li *ngFor="let alumno of curso.listaAlumnos">
       {{alumno.nombre}}
     </li>
   </span>
 </div>
+
+<hr>
+<strong>{{mensaje | titlecase}}</strong>
+<hr>
+
+<button (click)="alumnoIr()">Alumnos</button>
+
+<hr>
+
+<alumno [idCurso]="curso" (nuevoEvento)="escribirMensaje($event)"></alumno>

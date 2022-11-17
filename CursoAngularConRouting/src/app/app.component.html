@@ -1,6 +1,14 @@
 <span> {{title}} - Esta es la aplicación. </span>
 
+
 <hr>
+<nav>
+  <a [routerLink]="['/']" [routerLinkActive]="['active']">Cursos</a>
+  -
+  <a [routerLink]="['/alumno']" [routerLinkActive]="['active']">Alumnos</a>
+  -
+  <a [routerLink]="['/usuario']" [routerLinkActive]="['active']">Usuarios</a>
+</nav>
 
 <router-outlet></router-outlet>
 

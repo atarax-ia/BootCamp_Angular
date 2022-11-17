@@ -5,6 +5,7 @@ import {PetsComponent} from "./pets/pets.component";
 
 const routes: Routes = [
   {path: 'mascota', component: PetsComponent},
+  {path: 'mascota/:duenyo', component: PetsComponent},
   {path: '', component: OwnersComponent},
   {path: '**', component: OwnersComponent}
 ];

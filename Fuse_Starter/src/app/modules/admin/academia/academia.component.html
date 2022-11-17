@@ -1,0 +1,135 @@
+<table *ngIf="mostrar">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <tr>
+                <mat-card-title>Añadir nuevo alumno: </mat-card-title>
+            </tr>
+        </mat-card-header>
+        <mat-card-content>
+            <tr>
+                <p>Nombre:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca el nombre</mat-label>
+                        <input matInput placeholder="Nombre">
+                    </mat-form-field>
+                </p>
+            </tr>
+            <tr>
+                <p>e-mail:
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your email</mat-label>
+                        <input matInput placeholder="username@domain.com">
+                    </mat-form-field>
+                </p>
+            </tr>
+
+            <tr>
+                <p>Ciudad:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca la ciudad</mat-label>
+                        <input matInput placeholder="Ciudad">
+                    </mat-form-field>
+                </p>
+            </tr>
+
+                <tr>
+                <p>Código postal:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca el código postal</mat-label>
+                        <input matInput placeholder="Código postal">
+                    </mat-form-field>
+                </p>
+            </tr>
+
+            <tr>
+                <p>Teléfono:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca el número de teléfono</mat-label>
+                        <input matInput placeholder="Teléfono">
+                    </mat-form-field>
+                </p>
+            </tr>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="warn" (click)="guardarAlumno()">Guardar</button>
+            <button mat-raised-button color="primary" (click)="cambiarMostrar()">Nuevo curso</button>
+        </mat-card-actions>
+    </mat-card>
+</table>
+
+<table *ngIf="!mostrar">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <tr>
+                <mat-card-title>Añadir nuevo curso: </mat-card-title>
+            </tr>
+        </mat-card-header>
+        <mat-card-content>
+            <tr>
+                <p>Identificador:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca el identificador</mat-label>
+                        <input matInput placeholder="id">
+                    </mat-form-field>
+                </p>
+            </tr>
+            <tr>
+                <p>Título:
+                    <mat-form-field appearance="fill">
+                        <mat-label>Introduzca el títlo</mat-label>
+                        <input matInput placeholder="Título">
+                    </mat-form-field>
+                </p>
+            </tr>
+
+            <tr>
+                <p>Ficha:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca la ficha</mat-label>
+                        <input matInput placeholder="Ficha">
+                    </mat-form-field>
+                </p>
+            </tr>
+
+            <tr>
+                <p>Descripción:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca la descripción</mat-label>
+                        <input matInput placeholder="Descripción">
+                    </mat-form-field>
+                </p>
+            </tr>
+
+            <tr>
+                <p>Categoría:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca la categoría</mat-label>
+                        <input matInput placeholder="Categoría">
+                    </mat-form-field>
+                </p>
+            </tr>
+
+            <tr>
+                <p>Duración:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca la duración</mat-label>
+                        <input matInput placeholder="Duración">
+                    </mat-form-field>
+                </p>
+            </tr>
+
+            <tr>
+                <p>Fecha de actualización:
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduzca la fecha de la última actualización</mat-label>
+                        <input matInput placeholder="Fecha actualización">
+                    </mat-form-field>
+                </p>
+            </tr>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="warn" (click)="guardarCurso()">Guardar</button>
+            <button mat-raised-button color="primary" (click)="cambiarMostrar()">Nuevo alumno</button>
+        </mat-card-actions>
+    </mat-card>
+</table>

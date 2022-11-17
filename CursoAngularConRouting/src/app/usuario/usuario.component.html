@@ -1,0 +1,24 @@
+<input type="text" [(ngModel)]="parametro">
+<button (click)="getUser(parametro)">Buscar usuario</button>
+
+<button (click)="getAllUsers()">Listar usuarios</button>
+
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Usuario</th>
+      <th>e-Mail</th>
+      <th>web</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of listUsers">
+    <td>{{user.name}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.website}}</td>
+  </tr>
+  </tbody>
+</table>

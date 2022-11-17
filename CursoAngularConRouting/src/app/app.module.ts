@@ -6,19 +6,29 @@ import { AppComponent } from './app.component';
 import { AlumnoComponent } from './alumno/alumno.component';
 import {CursoComponent} from "./curso/curso.component";
 import {FormsModule} from "@angular/forms";
+import {CursoService} from "./services/curso.service";
+import { HttpClientModule} from "@angular/common/http";
+import { UsuarioComponent } from './usuario/usuario.component';
+import {UsuariosService} from "./services/usuarios.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [
     AppComponent,
     AlumnoComponent,
-    CursoComponent
+    CursoComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [CursoService, UsuariosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

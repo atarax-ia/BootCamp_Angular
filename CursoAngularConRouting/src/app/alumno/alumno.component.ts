@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Alumno} from "./alumno";
+import { Router, ActivatedRoute, Params } from "@angular/router";
 
 @Component({
   selector: 'alumno',
@@ -17,7 +18,13 @@ export class AlumnoComponent implements OnInit {
 
   public alu: Array<Alumno>;
 
-  constructor() {  // Inicializador de variables
+  public parametro: string = '';
+
+  @Input() idCurso: string = '';
+
+  @Output() nuevoEvento = new EventEmitter<string>();
+
+  constructor(private _route: ActivatedRoute, private _router: Router) {  // Inicializador de variables
     this.nombre = "Antonio";
     this.edad = 25;
     this.matriculado = false;
@@ -26,6 +33,10 @@ export class AlumnoComponent implements OnInit {
   }
 
   ngOnInit(): void {   // Código que se ejecuta al cargar el componente
+    this._route.params.forEach( s => {
+      this.parametro = s.valueOf().toString();
+    });
+    console.log(this.parametro);
     this.cambiarEdad();
     console.log(this.edad);
   }
@@ -36,6 +47,7 @@ export class AlumnoComponent implements OnInit {
 
   cambiarMatricula(estado: boolean): void {
     this.matriculado = estado;
+    this.nuevoEvento.emit("Esto es una prueba");
   }
 
   addAlumno(nombre: string) {
