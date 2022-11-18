@@ -8,6 +8,7 @@ import {FuseConfirmationModule, FuseConfirmationService} from '@fuse/services/co
 @Component({
     selector     : 'curso',
     templateUrl  : './curso.component.html',
+    styleUrls    : ['/curso.component.css'],
     encapsulation: ViewEncapsulation.None
 })
 export class CursoComponent implements OnInit
@@ -34,8 +35,13 @@ export class CursoComponent implements OnInit
             );
         dialogRef.afterClosed().subscribe((result) => {
             console.log(result);
+            if(result === 'confirmed') {
+                this._cursoService.getCursos().subscribe((data) => {
+                    this.cursos = data;
+                    console.log(this.cursos);
+
+                });
+            }
         });
-        this._cursoService.getCursos().subscribe(data => this.cursos = data);
-        console.log(this.cursos);
     }
 }

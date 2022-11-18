@@ -6,6 +6,7 @@ import {AlumnoService} from './alumno.service';
 @Component({
     selector     : 'alumno',
     templateUrl  : './alumno.component.html',
+    styleUrls    : ['alumno.component.css'],
     encapsulation: ViewEncapsulation.None
 })
 export class AlumnoComponent implements OnInit
@@ -32,8 +33,12 @@ export class AlumnoComponent implements OnInit
         );
         dialogRef.afterClosed().subscribe((result) => {
             console.log(result);
+            if(result === 'confirmed') {
+                this._alumnoService.getAlumnos().subscribe((data) => {
+                    this.alumnos = data;
+                    console.log(this.alumnos);
+                });
+            }
         });
-        this._alumnoService.getAlumnos().subscribe(data => this.alumnos = data);
-        console.log(this.alumnos);
     }
 }

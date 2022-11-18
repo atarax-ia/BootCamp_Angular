@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Alumno} from "./alumno";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 

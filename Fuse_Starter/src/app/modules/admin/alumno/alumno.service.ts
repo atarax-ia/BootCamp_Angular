@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import  { Alumno } from './alumno';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import {BehaviorSubject, map, Observable, switchMap, take, tap} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -22,4 +22,7 @@ export class AlumnoService {
         );
     }
 
+    public addAlumno(alumno: Alumno): Observable<any> {
+        return this.http.post<Alumno>('api/apps/academia/alumnos', alumno);
+    }
 }

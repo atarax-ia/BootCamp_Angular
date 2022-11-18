@@ -3,7 +3,7 @@ import { Route, RouterModule } from '@angular/router';
 import { AcademiaComponent } from 'app/modules/admin/academia/academia.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import {NgForOf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
@@ -27,7 +27,7 @@ const academiaRoutes: Route[] = [
         MatCardModule,
         ReactiveFormsModule,
         NgIf, NgForOf,
-        MatButtonModule
+        MatButtonModule, FormsModule
     ]
 })
 export class AcademiaModule

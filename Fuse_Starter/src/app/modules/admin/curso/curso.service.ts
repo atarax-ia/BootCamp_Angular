@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import  { Curso } from './curso';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import {Alumno} from "../alumno/alumno";
+import {CursoComponent} from "./curso.component";
 
 @Injectable({
     providedIn: 'root'
@@ -22,4 +24,7 @@ export class CursoService {
         );
     }
 
+    public addCurso(curso: Curso): Observable<any> {
+        return this.http.post<Curso>('api/apps/academia/cursos', curso);
+    }
 }

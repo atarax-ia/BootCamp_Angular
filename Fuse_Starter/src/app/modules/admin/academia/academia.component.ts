@@ -1,24 +1,42 @@
-import { Component, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import {Component, Output, EventEmitter, ViewEncapsulation, Input} from '@angular/core';
 import {FuseConfirmationService} from '../../../../@fuse/services/confirmation';
 import {Curso} from '../curso/curso';
 import {Alumno} from '../alumno/alumno';
+import {AlumnoComponent} from '../alumno/alumno.component';
+import {CursoComponent} from '../curso/curso.component';
+import {AlumnoService} from "../alumno/alumno.service";
+import {CursoService} from "../curso/curso.service";
 
 @Component({
     selector     : 'academia',
     templateUrl  : './academia.component.html',
+    styleUrls    : ['./academia.component.css'],
     encapsulation: ViewEncapsulation.None
 })
 export class AcademiaComponent
 {
     public mostrar: boolean = true;
 
-    @Output() nuevoAlumno = new EventEmitter<Alumno>();
+    public nuevoAlumnoId: string;
+    public nuevoAlumnoName: string;
+    public nuevoAlumnoEmail: string;
+    public nuevoAlumnoCity: string;
+    public nuevoAlumnoZipcode: string;
+    public nuevoAlumnoPhone: string;
 
-    @Output() nuevoCurso = new EventEmitter<Curso>();
+    public nuevoCursoId: string;
+    public nuevoCursoTitle: string;
+    public nuevoCursoDescription: string;
+    public nuevoCursoCategory: string;
+    public nuevoCursoDuration: string;
+
     /**
      * Constructor
      */
-    constructor(private _fuseConfirmationService: FuseConfirmationService)
+    constructor(
+        private _alumnoService: AlumnoService,
+        private _cursoService: CursoService,
+        private _fuseConfirmationService: FuseConfirmationService)
     {
     }
 
@@ -40,8 +58,17 @@ export class AcademiaComponent
         );
         dialogRef.afterClosed().subscribe((result) => {
             console.log(result);
-            if(result === confirm()) {
-                this.nuevoAlumno.emit(new Alumno());
+            if(result === 'confirmed') {
+                this._alumnoService.addAlumno(
+                    new Alumno(
+                        Number(this.nuevoAlumnoId),
+                        this.nuevoAlumnoName,
+                        this.nuevoAlumnoEmail,
+                        this.nuevoAlumnoCity,
+                        this.nuevoAlumnoZipcode,
+                        this.nuevoAlumnoPhone
+                    )
+                );
             }
         });
     }
@@ -60,8 +87,16 @@ export class AcademiaComponent
         );
         dialogRef.afterClosed().subscribe((result) => {
             console.log(result);
-            if(result === confirm()) {
-                this.nuevoCurso.emit(new Curso());
+            if(result === 'confirmed') {
+                this._cursoService.addCurso(
+                    new Curso(
+                        this.nuevoCursoId,
+                        this.nuevoCursoTitle,
+                        this.nuevoCursoDescription,
+                        this.nuevoCursoDescription,
+                        Number(this.nuevoCursoDuration)
+                    )
+                );
             }
         });
     }
